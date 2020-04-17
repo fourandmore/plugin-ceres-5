@@ -1,0 +1,237 @@
+{{ component( "Ceres::Basket.Components.AddToBasket" ) }}
+{{ component( "Ceres::Item.Components.AddToWishList" ) }}
+{{ component( "Ceres::Item.Components.GraduatedPrices" ) }}
+{{ component( "Ceres::Item.Components.ItemBundle" ) }}
+{{ component( "Ceres::Item.Components.ItemImageCarousel" ) }}
+{{ component( "Ceres::Item.Components.OldVariationSelect" ) }}
+{{ component( "Ceres::Item.Components.OrderProperties" ) }}
+{{ component( "Ceres::Item.Components.OrderPropertyList" ) }}
+{{ component( "CeresCoconut::Item.Components.SingleItem" ) }}
+{{ component( "CeresCoconut::Item.Components.VariationSelect" ) }}
+
+<single-item v-cloak item-data="{{ item | json_data }}" attributes-data="{{ attributes | json_data }}" variations="{{ variations | json_data }}">
+    <template #before-price>{{ LayoutContainer.show("Ceres::SingleItem.BeforePrice", item.documents[0].data) }}</template>
+    <template #after-price>{{ LayoutContainer.show("Ceres::SingleItem.AfterPrice", item.documents[0].data) }}</template>
+    <template #before-add-to-basket>{{ LayoutContainer.show("Ceres::SingleItem.BeforeAddToBasket", item.documents[0].data) }}</template>
+    <template #after-add-to-basket>{{ LayoutContainer.show("Ceres::SingleItem.AfterAddToBasket", item.documents[0].data) }}</template>
+    <template #additional-content-after-add-to-basket>{{ LayoutContainer.show("Ceres::SingleItem.AdditionalContentAfterAddToBasket", item.documents[0].data) }}</template>
+    <template #additional-content-after-vat>{{ LayoutContainer.show("Ceres::SingleItem.AdditionalContentAfterVAT", item.documents[0].data) }}</template>
+    <template #add-detail-tabs>{{ LayoutContainer.show("Ceres::SingleItem.AddDetailTabs", item.documents[0].data) }}</template>
+    <template #add-detail-tabs-content>{{ LayoutContainer.show("Ceres::SingleItem.AddDetailTabsContent", item.documents[0].data) }}</template>
+    <template #item-list-container>{{ LayoutContainer.show("Ceres::SingleItem.ItemListContainer", item) }}</template>
+    <template #feedback-container>{{ LayoutContainer.show("Ceres::SingleItem.FeedbackContainer", item) }}</template>
+    <template #image-carousel>
+        {% set ImageCarouselOverride = LayoutContainer.show("Ceres::SingleItem.ImageCarousel") %}
+        {% if ImageCarouselOverride|trim is empty %}
+            <item-image-carousel image-url-accessor="url" template="#vue-item-image-carousel"></item-image-carousel>
+        {% else %}
+            {{ ImageCarouselOverride }}
+        {% endif %}
+    </template>
+    <template #eigenschaft>
+    {%  for variationProperty in item.documents[0].data.variationProperties %}
+		{% if variationProperty.property.id == 11 %}
+			<div class="A-plus" style="height:50px; width: 100px;">
+		    {%  for variationProperty in item.documents[0].data.variationProperties %}
+	
+				{% if variationProperty.property.id == 10 %}
+					<a href="{{ variationProperty.values.value }}" target="_blank">
+            		<img src="https://cdn02.plentymarkets.com/t8d6ebrty3oo/frontend/Energieeffizienz/Speicher/A-plus.png" style="position: relative;">
+					</a>
+				{% endif %}
+			{% endfor %}
+			</div>
+    	{% endif %}
+		{% if variationProperty.property.id == 12 %}
+			<div class="A" style="height:50px; width: 100px;">
+		    {%  for variationProperty in item.documents[0].data.variationProperties %}
+	
+				{% if variationProperty.property.id == 10 %}
+					<a href="{{ variationProperty.values.value }}" target="_blank">
+            		<img src="https://cdn02.plentymarkets.com/t8d6ebrty3oo/frontend/Energieeffizienz/Speicher/A.png" style="position: relative;">
+					</a>
+				{% endif %}
+			{% endfor %}
+			</div>
+    	{% endif %}
+		{% if variationProperty.property.id == 13 %}
+			<div class="B" style="height:50px; width: 100px;">
+		    {%  for variationProperty in item.documents[0].data.variationProperties %}
+	
+				{% if variationProperty.property.id == 10 %}
+					<a href="{{ variationProperty.values.value }}" target="_blank">
+            		<img src="https://cdn02.plentymarkets.com/t8d6ebrty3oo/frontend/Energieeffizienz/Speicher/B.png" style="position: relative;">
+					</a>
+				{% endif %}
+			{% endfor %}
+			</div>
+    	{% endif %}
+		{% if variationProperty.property.id == 14 %}
+			<div class="C" style="height:50px; width: 100px;">
+		    {%  for variationProperty in item.documents[0].data.variationProperties %}
+	
+				{% if variationProperty.property.id == 10 %}
+					<a href="{{ variationProperty.values.value }}" target="_blank">
+            		<img src="https://cdn02.plentymarkets.com/t8d6ebrty3oo/frontend/Energieeffizienz/Speicher/C.png" style="position: relative;">
+					</a>
+				{% endif %}
+			{% endfor %}
+			</div>
+    	{% endif %}
+		{% if variationProperty.property.id == 17 %}
+			<div class="D" style="height:50px; width: 100px;">
+		    {%  for variationProperty in item.documents[0].data.variationProperties %}
+	
+				{% if variationProperty.property.id == 10 %}
+					<a href="{{ variationProperty.values.value }}" target="_blank">
+            		<img src="https://cdn02.plentymarkets.com/t8d6ebrty3oo/frontend/Energieeffizienz/Speicher/D.png" style="position: relative;">
+					</a>
+				{% endif %}
+			{% endfor %}
+			</div>
+    	{% endif %}
+		{% if variationProperty.property.id == 18 %}
+			<div class="E" style="height:50px; width: 100px;">
+		    {%  for variationProperty in item.documents[0].data.variationProperties %}
+	
+				{% if variationProperty.property.id == 10 %}
+					<a href="{{ variationProperty.values.value }}" target="_blank">
+            		<img src="https://cdn02.plentymarkets.com/t8d6ebrty3oo/frontend/Energieeffizienz/Speicher/E.png" style="position: relative;">
+					</a>
+				{% endif %}
+			{% endfor %}
+			</div>
+    	{% endif %}
+		{% if variationProperty.property.id == 19 %}
+			<div class="F" style="height:50px; width: 100px;">
+		    {%  for variationProperty in item.documents[0].data.variationProperties %}
+	
+				{% if variationProperty.property.id == 10 %}
+					<a href="{{ variationProperty.values.value }}" target="_blank">
+            		<img src="https://cdn02.plentymarkets.com/t8d6ebrty3oo/frontend/Energieeffizienz/Speicher/F.png" style="position: relative;">
+					</a>
+				{% endif %}
+			{% endfor %}
+			</div>
+    	{% endif %}
+				{% if variationProperty.property.id == 20 %}
+			<div class="A++" style="height:50px; width: 100px;">
+		    {%  for variationProperty in item.documents[0].data.variationProperties %}
+	
+				{% if variationProperty.property.id == 10 %}
+					<a href="{{ variationProperty.values.value }}" target="_blank">
+            		<img src="https://cdn02.plentymarkets.com/t8d6ebrty3oo/frontend/Energieeffizienz/Kessel/A-plusplus.png" style="position: relative;">
+					</a>
+				{% endif %}
+			{% endfor %}
+			</div>
+    	{% endif %}
+		{% if variationProperty.property.id == 21 %}
+			<div class="A+" style="height:50px; width: 100px;">
+		    {%  for variationProperty in item.documents[0].data.variationProperties %}
+	
+				{% if variationProperty.property.id == 10 %}
+					<a href="{{ variationProperty.values.value }}" target="_blank">
+            		<img src="https://cdn02.plentymarkets.com/t8d6ebrty3oo/frontend/Energieeffizienz/Kessel/A-plus.png" style="position: relative;">
+					</a>
+				{% endif %}
+			{% endfor %}
+			</div>
+    	{% endif %}
+		{% if variationProperty.property.id == 22 %}
+			<div class="A" style="height:50px; width: 100px;">
+		    {%  for variationProperty in item.documents[0].data.variationProperties %}
+	
+				{% if variationProperty.property.id == 10 %}
+					<a href="{{ variationProperty.values.value }}" target="_blank">
+            		<img src="https://cdn02.plentymarkets.com/t8d6ebrty3oo/frontend/Energieeffizienz/Kessel/A.png" style="position: relative;">
+					</a>
+				{% endif %}
+			{% endfor %}
+			</div>
+    	{% endif %}
+			{% if variationProperty.property.id == 23 %}
+			<div class="B" style="height:50px; width: 100px;">
+		    {%  for variationProperty in item.documents[0].data.variationProperties %}
+	
+				{% if variationProperty.property.id == 10 %}
+					<a href="{{ variationProperty.values.value }}" target="_blank">
+            		<img src="https://cdn02.plentymarkets.com/t8d6ebrty3oo/frontend/Energieeffizienz/Kessel/B.png" style="position: relative;">
+					</a>
+				{% endif %}
+			{% endfor %}
+			</div>
+    	{% endif %}
+					{% if variationProperty.property.id == 24 %}
+			<div class="C" style="height:50px; width: 100px;">
+		    {%  for variationProperty in item.documents[0].data.variationProperties %}
+	
+				{% if variationProperty.property.id == 10 %}
+					<a href="{{ variationProperty.values.value }}" target="_blank">
+            		<img src="https://cdn02.plentymarkets.com/t8d6ebrty3oo/frontend/Energieeffizienz/Kessel/C.png" style="position: relative;">
+					</a>
+				{% endif %}
+			{% endfor %}
+			</div>
+    	{% endif %}
+					{% if variationProperty.property.id == 25 %}
+			<div class="D" style="height:50px; width: 100px;">
+		    {%  for variationProperty in item.documents[0].data.variationProperties %}
+	
+				{% if variationProperty.property.id == 10 %}
+					<a href="{{ variationProperty.values.value }}" target="_blank">
+            		<img src="https://cdn02.plentymarkets.com/t8d6ebrty3oo/frontend/Energieeffizienz/Kessel/D.png" style="position: relative;">
+					</a>
+				{% endif %}
+			{% endfor %}
+			</div>
+    	{% endif %}
+					{% if variationProperty.property.id == 26 %}
+			<div class="E" style="height:50px; width: 100px;">
+		    {%  for variationProperty in item.documents[0].data.variationProperties %}
+	
+				{% if variationProperty.property.id == 10 %}
+					<a href="{{ variationProperty.values.value }}" target="_blank">
+            		<img src="https://cdn02.plentymarkets.com/t8d6ebrty3oo/frontend/Energieeffizienz/Kessel/E.png" style="position: relative;">
+					</a>
+				{% endif %}
+			{% endfor %}
+			</div>
+    	{% endif %}
+					{% if variationProperty.property.id == 27 %}
+			<div class="F" style="height:50px; width: 100px;">
+		    {%  for variationProperty in item.documents[0].data.variationProperties %}
+	
+				{% if variationProperty.property.id == 10 %}
+					<a href="{{ variationProperty.values.value }}" target="_blank">
+            		<img src="https://cdn02.plentymarkets.com/t8d6ebrty3oo/frontend/Energieeffizienz/Kessel/F.png" style="position: relative;">
+					</a>
+				{% endif %}
+			{% endfor %}
+			</div>
+    	{% endif %}
+		{% if variationProperty.property.id == 228 %}
+			<div class="G" style="height:50px; width: 100px;">
+		    {%  for variationProperty in item.documents[0].data.variationProperties %}
+	
+				{% if variationProperty.property.id == 10 %}
+					<a href="{{ variationProperty.values.value }}" target="_blank">
+            		<img src="https://cdn02.plentymarkets.com/t8d6ebrty3oo/frontend/Energieeffizienz/Kessel/G.png" style="position: relative;">
+					</a>
+				{% endif %}
+			{% endfor %}
+			</div>
+    	{% endif %}
+    {% endfor %}
+    </template>
+	
+	<template #produktdatenblatt>
+		{%  for variationProperty in item.documents[0].data.variationProperties %}
+	{% if variationProperty.property.id == 29 %}
+					<div id="produktdatenblatt"><a href="{{ variationProperty.values.value }}" target="_blank">
+            		Produktdatenblatt
+					</a></div>
+				{% endif %}
+		{% endfor %}
+	</template>
+</single-item>
