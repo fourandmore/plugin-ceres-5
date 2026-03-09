@@ -13,7 +13,7 @@
 <!-- OWN CODE NAV IMAGES -->{% set imageScope = currentScope ~ "/documents/" ~ child.details[0].image2Path %}<!-- NAV IMAGES -->
                         {% set newScope = currentScopeUrl ~ "/" ~ child.details[0].nameUrl %}
                         <a @touchstart.stop href="{{ newScope }}{{ urls.trailingSlashSuffix }}" itemprop="name">
-<!-- OWN CODE NAV IMAGES --><img alt="Kategorie Bild" class="img-fluid" src="{{ imageScope }}{{ urls.trailingSlashSuffix }}"><!-- NAV IMAGES -->
+<!-- OWN CODE NAV IMAGES --><img alt="Kategorie Bild Navigation" class="img-fluid" src="{{ imageScope }}{{ urls.trailingSlashSuffix }}"><!-- NAV IMAGES -->
                         {{ child.details[0].name }}</a>
                     </li>
                     {% if child.children %}
